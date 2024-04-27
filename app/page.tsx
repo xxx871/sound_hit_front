@@ -1,72 +1,29 @@
-"use client";
-import React, { useEffect, useState } from "react";
-
-type Post = {
-  id: number;
-  title: string;
-};
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Home() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [newTitle, setNewTitle] = useState("");
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/");
-      if (!response.ok) {
-        throw new Error("データの取得に失敗しました");
-      }
-      const data = await response.json();
-      setPosts(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3000/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title: newTitle }),
-      });
-      if (!response.ok) {
-        throw new Error("投稿に失敗しました");
-      }
-      setNewTitle("");
-      fetchPosts();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h2 className="text-3xl mb-4">記事の一覧</h2>
-      <form onSubmit={handleSubmit} className="mt-4 mb-4">
-        <input
-          type="text"
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-          placeholder="新しい投稿のタイトル"
-          className="mr-2 p-2 border"
-        />
-        <button type="submit" className="p-2 bg-blue-500 text-white">
-          投稿する
-        </button>
-      </form>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
+    <main className="text-white">
+      <div>
+        <h1 className="text-9xl mt-36 text-center font-palettemosaic font-bold">
+          おんピシャ
+        </h1>
+      </div>
+      <div className="mt-20 w-72 mx-auto text-2xl font-palettemosaic">
+        <Select>
+          <SelectTrigger className="w-288px]">
+            <SelectValue placeholder="モードせんたく"/>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">つうじょうモード</SelectItem>
+            <SelectItem value="dark">れんしゅうモード</SelectItem>
+            <SelectItem value="system">ハモりモード</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="mt-20 w-16 mx-auto font-palettemosaic">
+        <Button variant="outline">START</Button>
+      </div>
     </main>
   );
 }
