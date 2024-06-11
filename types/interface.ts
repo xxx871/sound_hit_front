@@ -33,3 +33,8 @@ export interface Mode {
   id: number;
   name: string;
 };
+
+export interface Difficult {
+  id: number;
+  name: string;
+};
