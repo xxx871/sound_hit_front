@@ -1,4 +1,4 @@
-import { getProfile } from '@/features/user/api/getProfile'
+import { getProfile } from '@/lib/api/getProfile'
 import EditProfileForm from '@/features/user/components/EditProfileForm';
 import { getGenders } from '@/lib/api/getGenders';
 import { getNotes } from '@/lib/api/getNotes';
