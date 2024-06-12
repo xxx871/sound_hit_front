@@ -3,11 +3,6 @@ export interface Score {
   mode: string;
   difficulty: string;
   score: number;
-};export interface Score {
-  id: number;
-  mode: string;
-  difficulty: string;
-  score: number;
 };
 
 export interface User {
@@ -15,6 +10,14 @@ export interface User {
   gender: string | null;
   user_high_note: Note | null;
   user_low_note: Note | null;
+};
+
+export interface GameUser {
+  name: string;
+  gender: string | null;
+  user_high_note: Note | null;
+  user_low_note: Note | null;
+  gender_id: number;
 };
 
 export interface Gender {
