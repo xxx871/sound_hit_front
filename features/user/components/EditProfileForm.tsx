@@ -4,8 +4,8 @@ import { Gender, Note, User } from '@/types/interface';
 import React from 'react'
 import { useEditForm } from '../hooks/useEditForm';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import ModalKeyboard from './ModalKeyboard';
+import { LoadingButton } from '@/app/components/elements/LoadingButton';
 
 export interface EditProfileProps {
   userData: User;
@@ -14,7 +14,7 @@ export interface EditProfileProps {
 }
 
 const EditProfileForm: React.FC<EditProfileProps> = ({ userData, genders, notes }) => {
-  const { form, onSubmit, errorMessage } = useEditForm(userData, notes);
+  const { form, onSubmit, errorMessage, isLoading } = useEditForm(userData, notes);
   const {
     register,
     handleSubmit,
@@ -106,7 +106,14 @@ const EditProfileForm: React.FC<EditProfileProps> = ({ userData, genders, notes 
           {errorMessage && (
             <div className="mb-4 text-white">{errorMessage}</div>
           )}
-          <Button type="submit">保存</Button>
+          <LoadingButton
+            type="submit"
+            variant="outline"
+            className="w-32 h-12 text-lg text-white"
+            isLoading={isLoading}
+          >
+            保存
+          </LoadingButton>
         </div>
       </form>
     </div>
