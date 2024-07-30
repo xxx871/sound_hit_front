@@ -1,12 +1,21 @@
+import { GameUser } from '@/types/interface';
 import React from 'react'
+import { useGameLogic } from '../../hooks/useGameLogic';
+import GameBase from './GameBase';
 
-const MediumGame = () => {
-  return (
-    <div className="text-white text-center mt-32 grid gap-16">
-      <h1 className="text-8xl">難易度：普通</h1>
-      <h3 className="text-6xl">後日実装予定</h3>
-    </div>
-  )
+interface MediumGameProps {
+  onPlayNote: (note: string) => void;
+  userInfo: GameUser;
 }
 
-export default MediumGame
+const MediumGame: React.FC<MediumGameProps> = ({ userInfo, onPlayNote }) => {
+  const { noteInfo, playNote } = useGameLogic(userInfo);
+
+  return (
+    <div>
+      <GameBase noteInfo={noteInfo} playNote={() => playNote(onPlayNote)} />;
+    </div>
+  );
+};
+
+export default MediumGame;

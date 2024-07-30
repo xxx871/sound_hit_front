@@ -60,7 +60,7 @@ const GameContainer: React.FC<GameContainerProps> = ({ userInfo, notes }) => {
       case 1:
         return <EasyGame userInfo={userInfo} onPlayNote={handlePlayNote}/>
       case 2:
-        return <MediumGame />
+        return <MediumGame userInfo={userInfo} onPlayNote={handlePlayNote}/>
       case 3:
         return <HardGame />
       default:
@@ -79,6 +79,7 @@ const GameContainer: React.FC<GameContainerProps> = ({ userInfo, notes }) => {
             notes={notes}
             onResult={handleAnalysisResult}
             onPitchDetected={handlePitchDetected}
+            difficulty={difficulty}
           />
         )}
         {isMatch !== null && (
@@ -95,7 +96,7 @@ const GameContainer: React.FC<GameContainerProps> = ({ userInfo, notes }) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GameContainer
+export default GameContainer;
