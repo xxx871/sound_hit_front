@@ -4,8 +4,8 @@ import { Gender, Note, User } from '@/types/interface';
 import React from 'react'
 import { useEditForm } from '../hooks/useEditForm';
 import { Input } from '@/components/ui/input';
-import ModalKeyboard from './ModalKeyboard';
 import { LoadingButton } from '@/app/components/elements/LoadingButton';
+import Keyboard from '@/features/keyboard/components/Keyboard';
 
 export interface EditProfileProps {
   userData: User;
@@ -101,7 +101,9 @@ const EditProfileForm: React.FC<EditProfileProps> = ({ userData, genders, notes 
             {errors.user_low_note && <span>{errors.user_low_note.message}</span>}
           </div>
         </div>
-        <ModalKeyboard notes={notes} />
+        <div className="mt-4">
+          <Keyboard notes={notes} />
+        </div>
         <div className="mt-4">
           {errorMessage && (
             <div className="mb-4 text-white">{errorMessage}</div>
@@ -117,7 +119,7 @@ const EditProfileForm: React.FC<EditProfileProps> = ({ userData, genders, notes 
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default EditProfileForm
+export default EditProfileForm;
