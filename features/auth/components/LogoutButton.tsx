@@ -36,10 +36,11 @@ const LogoutButton = ({
       onClick={handleLogout}
       type={type}
       isLoading={isLoading}
+      className="bg-black py-1 px-3 rounded-md font-medium text-xl"
     >
       {children}
     </LoadingButton>
   );
 };
 
-export default LogoutButton
+export default LogoutButton;

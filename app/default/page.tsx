@@ -12,7 +12,7 @@ const Default = async () => {
   const modes = await getModes();
 
   return (
-    <main className="text-white">
+    <main>
       <DifficultGenderSelect
         genders={genders}
         difficulties={difficulties}
@@ -22,6 +22,6 @@ const Default = async () => {
     </main>
 
   );
-}
+};
 
-export default Default
+export default Default;

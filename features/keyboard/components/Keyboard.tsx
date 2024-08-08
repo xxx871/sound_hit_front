@@ -9,7 +9,11 @@ const Keyboard: React.FC<{ notes: Note[] }> = ({ notes }) => {
 
   return (
     <div>
-      <Button type="button" onClick={openModal}>
+      <Button
+        type="button"
+        className="w-30 h-10 text-lg rounded-full flex items-center justify-center transition-all hover:scale-105"
+        onClick={openModal}
+      >
         キーボードを表示
       </Button>
       {isModalOpen && (
