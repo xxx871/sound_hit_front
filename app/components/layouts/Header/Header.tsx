@@ -2,8 +2,8 @@ import LogoutButton from '@/features/auth/components/LogoutButton';
 import { getUserSession } from '@/lib/session';
 import Link from 'next/link'
 import React from 'react'
-import ModalTutorial from './ModalTutorial';
 import Image from 'next/image';
+import ModalTutorial from '@/features/tutorial/components/ModalTutorial';
 
 const Header = async () => {
   const userSession = await getUserSession();
@@ -12,8 +12,8 @@ const Header = async () => {
   return (
     <header className="divide-y border-gray-200 dark:border-gray-800 border-b bg-inherit h-12 flex items-center">
       <div className="px-4 md:py-2 lg:px-6 w-full">
-      <div className="flex items-center justify-between space-y-2 md:space-y-0 md:space-x-6 text-white">
-      <Link href="/" className="text-2xl font-bold font-palettemosaic flex items-center">
+        <div className="flex items-center justify-between space-y-2 md:space-y-0 md:space-x-6 text-white">
+          <Link href="/" className="text-2xl font-bold font-palettemosaic flex items-center">
             <Image
               src="/header_icon.png"
               alt="Header Icon"
