@@ -32,12 +32,12 @@ const UserRankings: React.FC<UserRankingsProps> = ({ modes, difficulties }) => {
 
   return (
     <div className="text-white max-w-sm mx-auto">
-      <h1 className="text-6xl text-center mt-6">ランキング</h1>
-      <div className="mt-8 text-2xl flex justify-between">
+      <h2 className="text-white text-center mt-8 text-3xl font-medium">ランキング</h2>
+      <div className="mt-8 text-lg flex justify-between">
         <div>
           <label>モード</label>
           <Select onValueChange={(value) => setSelectedMode(Number(value))}>
-            <SelectTrigger className="text-lg text-slate-300 w-40">
+            <SelectTrigger className="text-lg text-black w-40">
               <SelectValue placeholder="モード選択" />
             </SelectTrigger>
             <SelectContent>
@@ -54,7 +54,7 @@ const UserRankings: React.FC<UserRankingsProps> = ({ modes, difficulties }) => {
         <div>
           <label>難易度</label>
           <Select onValueChange={(value) => setSelectedDifficulty(Number(value))}>
-            <SelectTrigger className="text-lg text-slate-300 w-40">
+            <SelectTrigger className="text-lg text-black w-40">
               <SelectValue placeholder="難易度選択" />
             </SelectTrigger>
             <SelectContent>
@@ -84,6 +84,6 @@ const UserRankings: React.FC<UserRankingsProps> = ({ modes, difficulties }) => {
       </div>
     </div>
   );
-}
+};
 
-export default UserRankings
+export default UserRankings;

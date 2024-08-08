@@ -10,10 +10,10 @@ const Header = async () => {
   const isLoggedIn = userSession ? userSession.is_login : false;
 
   return (
-    <div className="divide-y border-gray-200 dark:border-gray-800 border-b bg-blue-900 h-16 flex items-center">
+    <header className="divide-y border-gray-200 dark:border-gray-800 border-b bg-inherit h-12 flex items-center">
       <div className="px-4 md:py-2 lg:px-6 w-full">
-        <div className="flex items-center justify-between space-y-2 md:space-y-0 md:space-x-6 text-white">
-          <Link href="/" className="text-3xl font-bold font-palettemosaic flex items-center">
+      <div className="flex items-center justify-between space-y-2 md:space-y-0 md:space-x-6 text-white">
+      <Link href="/" className="text-2xl font-bold font-palettemosaic flex items-center">
             <Image
               src="/header_icon.png"
               alt="Header Icon"
@@ -22,14 +22,14 @@ const Header = async () => {
             />
             おんぴしゃ
           </Link>
-          <nav className="flex justify-end items-center space-x-6 text-2xl">
-          <ModalTutorial />
-            <Link href="/ranking" className="font-medium text-white transition-colors hover:text-gray-300">
+          <nav className="flex justify-end items-center text-2xl font-medium text-white">
+            <ModalTutorial />
+            <Link href="/ranking" className="transition-colors hover:text-gray-300 mx-6">
               ランキング
             </Link>
             {isLoggedIn ? (
               <>
-                <Link href="/profile">プロフィール</Link>
+                <Link href="/profile" className="transition-colors hover:text-gray-300 mr-6">プロフィール</Link>
                 <LogoutButton
                   type="button"
                 >
@@ -37,15 +37,15 @@ const Header = async () => {
                 </LogoutButton>
               </>
             ) : (
-              <Link href="/login" className="bg-black py-2 px-3 text-white rounded-md font-medium">
+              <Link href="/login" className="bg-black text-white py-1 px-3 rounded-md font-medium text-xl transition-colors hover:bg-white hover:text-black">
                 ログイン
               </Link>
             )}
           </nav>
         </div>
       </div>
-    </div>
+    </header>
   )
-}
+};
 
-export default Header
+export default Header;

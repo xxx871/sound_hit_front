@@ -3,10 +3,10 @@ import React from 'react'
 
 const PasswordChange = () => {
   return (
-    <div className="max-w-sm mx-auto mt-10 grig gap-6">
+    <div className="max-w-sm mx-auto grig gap-6">
       <PasswordChangeForm />
     </div>
   )
-}
+};
 
-export default PasswordChange
+export default PasswordChange;

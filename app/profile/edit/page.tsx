@@ -17,10 +17,10 @@ const Edit = async () => {
   }
 
   return (
-    <div className="max-w-sm mx-auto mt-10">
+    <div className="max-w-sm mx-auto">
       <EditProfileForm userData={userData} genders={genders} notes={notes} />
     </div>
   )
-}
+};
 
-export default Edit
+export default Edit;

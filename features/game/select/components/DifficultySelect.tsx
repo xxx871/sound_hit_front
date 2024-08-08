@@ -9,10 +9,10 @@ interface DifficultSelectProps {
 const DifficultySelect = ({ difficulties, onSelect }: DifficultSelectProps) => {
   return (
     <Select onValueChange={onSelect}>
-      <SelectTrigger className="w-80 h-12 text-lg">
+      <SelectTrigger className="w-full text-lg text-center justify-center mt-1">
         <SelectValue placeholder="難易度を選択してください" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="w-60">
         {difficulties.map((difficulty) => (
           <SelectItem key={difficulty.id} value={difficulty.id.toString()}>
             {difficulty.name}
@@ -21,6 +21,6 @@ const DifficultySelect = ({ difficulties, onSelect }: DifficultSelectProps) => {
       </SelectContent>
     </Select>
   );
-}
+};
 
-export default DifficultySelect
+export default DifficultySelect;
