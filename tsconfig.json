@@ -17,10 +17,13 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "features/*": ["features/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/**/*.tsx", ".next/types/**/*.ts", "features/game/select/constants"],
+  "types": ["vitest/globals"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/**/*.tsx", ".next/types/**/*.ts", "features/game/select/constants", "vitest-setup.ts"],
   "exclude": ["node_modules"]
 }

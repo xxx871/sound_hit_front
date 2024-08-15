@@ -7,7 +7,7 @@ import { useContactForm } from '../hooks/useContactForm';
 import { LoadingButton } from '@/app/components/elements/LoadingButton';
 
 const ContactForm = () => {
-  const { form, onSubmit, isLoading } = useContactForm();
+  const { form, onSubmit, isLoading, error } = useContactForm();
   const {
     register,
     handleSubmit,
@@ -40,6 +40,7 @@ const ContactForm = () => {
         />
         {errors.message && <p>※{errors.message.message}</p>}
       </div>
+      {error && <p className="text-white">{error}</p>}
       <div className="mt-8 flex justify-center">
         <LoadingButton
           type="submit"
