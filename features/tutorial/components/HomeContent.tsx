@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page } from '../utils/types';
+import { Page } from '@/features/tutorial/utils/types';
 import Image from 'next/image';
 import { Mode } from '@/types/interface';
 

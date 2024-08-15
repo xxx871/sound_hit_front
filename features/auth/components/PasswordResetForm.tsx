@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Input } from '@/components/ui/input';
-import { usePasswordResetForm } from '../hooks/usePasswordResetForm';
+import { usePasswordResetForm } from '@/features/auth/hooks/usePasswordResetForm';
 import { LoadingButton } from '@/app/components/elements/LoadingButton';
 
 const PasswordResetForm = () => {

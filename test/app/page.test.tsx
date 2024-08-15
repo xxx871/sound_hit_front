@@ -2,9 +2,9 @@ import Home from "@/app/page";
 import { APIserver, mockRouter } from "@/vitest-setup";
 import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { errorModeHandler, modeHandlers } from "../mocks/modeMock";
+import { errorModeHandler, modeHandlers } from "@/test/mocks/modeMock";
 import userEvent from "@testing-library/user-event";
-import { setupMockDom } from "../mocks/mockPointerEvent";
+import { setupMockDom } from "@/test/mocks/mockPointerEvent";
 
 setupMockDom();
 

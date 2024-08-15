@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { useSignupForm } from '../hooks/useSignupForm';
+import { useSignupForm } from '@/features/auth/hooks/useSignupForm';
 import { Input } from '@/components/ui/input';
 import { LoadingButton } from '@/app/components/elements/LoadingButton';
 

@@ -8,6 +8,6 @@ const Thanks = () => {
       </h2>
     </div>
   )
-}
+};
 
-export default Thanks
+export default Thanks;

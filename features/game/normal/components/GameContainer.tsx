@@ -2,12 +2,12 @@
 
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
-import EasyGame from './EasyGame';
-import MediumGame from './MediumGame';
-import HardGame from './HardGame';
+import EasyGame from '@/features/game/normal/components/EasyGame';
+import MediumGame from '@/features/game/normal/components/MediumGame';
+import HardGame from '@/features/game/normal/components/HardGame';
 import { GameUser, Note } from '@/types/interface';
-import VoiceAnalysis from '../../components/VoiceAnalysis';
-import useMatchCount from '../../hooks/useMatchCount';
+import VoiceAnalysis from '@/features/game/components/VoiceAnalysis';
+import useMatchCount from '@/features/game/hooks/useMatchCount';
 import { LoadingButton } from '@/app/components/elements/LoadingButton';
 
 interface GameContainerProps {

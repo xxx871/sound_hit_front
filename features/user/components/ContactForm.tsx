@@ -3,7 +3,7 @@
 import React from 'react'
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useContactForm } from '../hooks/useContactForm';
+import { useContactForm } from '@/features/user/hooks/useContactForm';
 import { LoadingButton } from '@/app/components/elements/LoadingButton';
 
 const ContactForm = () => {

@@ -2,7 +2,7 @@
 
 import { Input } from '@/components/ui/input'
 import React from 'react'
-import { usePasswordChangeForm } from '../hooks/usePasswordChangeForm'
+import { usePasswordChangeForm } from '@/features/auth/hooks/usePasswordChangeForm'
 import { LoadingButton } from '@/app/components/elements/LoadingButton'
 
 const PasswordChangeForm = () => {

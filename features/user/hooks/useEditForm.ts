@@ -2,10 +2,10 @@ import { Note, User } from "@/types/interface";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { EditFormSchema } from "../validation/EditFormSchema";
+import { EditFormSchema } from "@/features/user/validation/EditFormSchema";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
-import { profileEdit } from "../api/profileEdit";
+import { profileEdit } from "@/features/user/api/profileEdit";
 
 export const useEditForm = (userData: User, notes: Note[]) => {
   const [isLoading, setIsLoading] = useState(false);

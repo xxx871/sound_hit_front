@@ -2,7 +2,7 @@
 
 import { Difficult, Mode } from '@/types/interface'
 import React, { useEffect, useState } from 'react'
-import { RankingEntry, getRanking } from '../api/getRanking';
+import { RankingEntry, getRanking } from '@/features/user/api/getRanking';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Icon } from '@/features/auth/components/icon';
 
