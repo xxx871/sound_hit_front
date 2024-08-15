@@ -1,7 +1,7 @@
-import ExternalAuthButton from '@/features/auth/components/ExternalAuthButton'
-import LoginForm from '@/features/auth/components/LoginForm'
-import Link from 'next/link'
-import React from 'react'
+import ExternalAuthButton from '@/features/auth/components/ExternalAuthButton';
+import LoginForm from '@/features/auth/components/LoginForm';
+import Link from 'next/link';
+import React from 'react';
 
 const Login = () => {
   return (

@@ -30,14 +30,13 @@ export const useLoginForm = () => {
       });
 
       if (response.error) {
-        console.log(response.error.message);
-        throw response.error;
+        setServerError("ログインに失敗しました。");
       }
 
       router.push("/");
       router.refresh();
-    } catch (error: any) {
-      setServerError(error.message);
+    } catch (error) {
+      setServerError("ログインに失敗しました。");
     } finally {
       setIsLoading(false);
     }
