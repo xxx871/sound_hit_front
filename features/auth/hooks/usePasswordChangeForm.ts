@@ -2,9 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { passwordChangeFormSchema } from "../validation/passwordChangeFormSchema";
+import { passwordChangeFormSchema } from "@/features/auth/validation/passwordChangeFormSchema";
 import { z } from "zod";
-import { passwordChange } from "../api/passwordChange";
+import { passwordChange } from "@/features/auth/api/passwordChange";
 
 export const usePasswordChangeForm = () => {
   const [isLoading, setIsLoading] = useState(false);

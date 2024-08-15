@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Palette_Mosaic } from "next/font/google";
-import "./globals.css";
-import Header from "./components/layouts/Header/Header";
-import Footer from "./components/layouts/Footer/Footer";
+import { Palette_Mosaic } from "next/font/google";
+import "@/app/globals.css";
+import Header from "@/app/components/layouts/Header/Header";
+import Footer from "@/app/components/layouts/Footer/Footer";
 
 const palettemosaic = Palette_Mosaic({
   weight: "400",

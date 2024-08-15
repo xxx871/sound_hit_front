@@ -3,7 +3,7 @@ import { APIserver, mockRouter } from "@/vitest-setup";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { errorLoginHandlers, loginHandlers } from "./loginMock";
+import { errorLoginHandlers, loginHandlers } from "@/test/app/login/loginMock";
 
 describe('ログインページ', () => {
   beforeEach(() => {

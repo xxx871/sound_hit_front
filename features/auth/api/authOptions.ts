@@ -4,6 +4,29 @@ import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { cookies } from "next/headers";
 
+const setAuthCookies = (uid: string, client: string, token: string) => {
+  cookies().set('uid', uid);
+  cookies().set('client', client);
+  cookies().set('access-token', token);
+};
+
+const handleOAuthResponse = (response: any) => {
+  if (response.status !== 200) {
+    console.error("Failed to log in");
+    return false;
+  }
+
+  const { uid, client, 'access-token': token } = response.headers;
+  
+  if (!uid || !client || !token) {
+    console.error("Failed to retrieve tokens from response headers");
+    return false;
+  }
+
+  setAuthCookies(uid, client, token);
+  return true;
+};
+
 export const authOptions: NextAuthOptions = {
   providers: [
     Github({
@@ -21,32 +44,11 @@ export const authOptions: NextAuthOptions = {
         const response = await axiosInstance.post(
           "/auth/oauth",
           { user, profile },
-          { headers: {
-            "Content-Type": "application/json",
-          },
-          }
+          { headers: { "Content-Type": "application/json" } }
         );
-
-        if (response.status === 200) {
-          const uid = response.headers['uid'];
-          const client = response.headers['client'];
-          const token = response.headers['access-token'];
-          
-          if (uid && client && token) {
-            cookies().set('uid', uid);
-            cookies().set('client', client);
-            cookies().set('access-token', token);
-            return true;
-          } else {
-            console.error("Failed to retrieve tokens from response headers");
-            return false;
-          }
-        } else {
-          console.error("Failed log in");
-          return false;
-        }
+        return handleOAuthResponse(response);
       } catch (error) {
-        console.log(error);
+        console.error("Error during sign in:", error);
         return false;
       }
     },

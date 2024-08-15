@@ -1,8 +1,8 @@
 import Header from "@/app/components/layouts/Header/Header";
 import { getUserSession } from "@/lib/session";
 import { modeHandlers } from "@/test/mocks/modeMock";
-import { APIserver, mockRouter } from "@/vitest-setup";
-import { render, screen, waitFor } from "@testing-library/react";
+import { APIserver } from "@/vitest-setup";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 

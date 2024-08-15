@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { axiosInstance } from './axios';
+import { axiosInstance } from '@/lib/axios';
 
 export const getUserSession = async () => {
   const cookieStore = cookies();
