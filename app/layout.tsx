@@ -3,6 +3,7 @@ import { Palette_Mosaic } from "next/font/google";
 import "@/app/globals.css";
 import Header from "@/app/components/layouts/Header/Header";
 import Footer from "@/app/components/layouts/Footer/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const palettemosaic = Palette_Mosaic({
   weight: "400",
@@ -29,6 +30,7 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      <GoogleAnalytics gaId={process.env.GA_ID ?? ""} />
     </html>
   );
 }
