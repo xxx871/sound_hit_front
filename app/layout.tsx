@@ -16,6 +16,9 @@ const palettemosaic = Palette_Mosaic({
 export const metadata: Metadata = {
   title: "Sound Hit",
   description: "Sound Hit",
+  verification: {
+		google: "GgsmpZNoDR1IT_-__Uyh4PE4KfAazbqCbd_oHQ9eVAU",
+		},
 };
 
 export default function RootLayout({
