@@ -8,6 +8,7 @@ const Profile = async () => {
   const userData = await getProfile();
   if (!userData) {
     redirect("/login");
+    return null;
   }
   const { name, user_high_note: highNote, user_low_note: lowNote, scores, gender } = userData;
 
