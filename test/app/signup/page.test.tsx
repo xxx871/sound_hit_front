@@ -5,7 +5,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import SignUp from "@/app/signup/page";
 import userEvent from "@testing-library/user-event";
 
-describe('ランキングページ', () => {
+describe('サインアップページ', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     APIserver.resetHandlers();

@@ -22,6 +22,20 @@ const createMockRouter = () => ({
 
 export const mockRouter = createMockRouter();
 
+export const mockRedirect = vi.fn();
+
 vi.mock('next/navigation', () => ({
-  useRouter: () => mockRouter
+  useRouter: () => mockRouter,
+  redirect: (url: string) => mockRedirect(url),
+}));
+
+vi.mock('next/headers', () => ({
+  cookies: vi.fn(() => ({
+    get: vi.fn((name) => {
+      if (name === 'access-token') return { value: 'mock-access-token' };
+      if (name === 'client') return { value: 'mock-client' };
+      if (name === 'uid') return { value: 'mock-uid' };
+      return null;
+    }),
+  })),
 }));
