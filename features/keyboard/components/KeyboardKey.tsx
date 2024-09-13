@@ -12,32 +12,19 @@ const KeyboardKey: React.FC<KeyboardKeyProps> = ({ note, onKeyPress, onKeyReleas
   const isBlackKey = note.en_note_name.includes('#');
   const keyStyle = getKeyStyle(isBlackKey);
 
-  const getLabelStyle = (isBlackKey: boolean) => {
-    const commonStyle = {
-      position: 'absolute' as const,
-      bottom: '5px',
-      left: '0',
-      right: '0',
-      textAlign: 'center' as const,
-    };
-
-    if (isBlackKey) {
-      return {
-        ...commonStyle,
-        fontSize: '8px',
-        color: 'white',
-      };
-    } else {
-      return {
-        ...commonStyle,
-        fontSize: '12px',
-        color: 'black',
-      };
-    }
-  };
+  const getLabelStyle = (isBlackKey: boolean) => ({
+    position: 'absolute' as const,
+    bottom: '5px',
+    left: '0',
+    right: '0',
+    textAlign: 'center' as const,
+    fontSize: isBlackKey ? '8px' : '12px',
+    color: isBlackKey ? 'white' : 'black',
+  });
 
   return (
     <div
+      data-testid={`key-${note.ja_note_name}`}
       style={{
         ...keyStyle,
         position: 'relative',

@@ -16,10 +16,10 @@ export const useEditForm = (userData: User, notes: Note[]) => {
     mode: "onChange",
     resolver: zodResolver(EditFormSchema),
     defaultValues: {
-      name: userData.name,
-      gender: userData.gender ?? '',
-      user_high_note: userData.user_high_note?.ja_note_name ?? '',
-      user_low_note: userData.user_low_note?.ja_note_name ?? '',
+      name: userData?.name,
+      gender: userData?.gender ?? '',
+      user_high_note: userData?.user_high_note?.ja_note_name ?? '',
+      user_low_note: userData?.user_low_note?.ja_note_name ?? '',
     },
   });
 
@@ -56,11 +56,11 @@ export const useEditForm = (userData: User, notes: Note[]) => {
       setIsLoading(false);
       return;
     }
-    
     router.push("/profile");
     router.refresh();
-    } catch (error: any) {
-      setErrorMessage(error.message || "エラーが発生しました。");
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    setErrorMessage('正常に送信できませんでした');
     } finally {
       setIsLoading(false);
     }
