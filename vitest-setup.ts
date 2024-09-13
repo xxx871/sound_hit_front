@@ -39,3 +39,12 @@ vi.mock('next/headers', () => ({
     }),
   })),
 }));
+
+vi.mock('tone', () => {
+  return {
+    PolySynth: vi.fn(),
+    Synth: vi.fn().mockImplementation(() => {
+      return { toDestination: vi.fn() }
+    })
+  }
+});

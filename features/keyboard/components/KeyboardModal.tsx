@@ -29,7 +29,7 @@ const KeyboardModal: React.FC<KeyboardModalProps> = ({ notes, onClose }) => {
         >
           ✖
         </Button>
-        <h2 className="m-4 text-center mb-12 text-2xl">音階を選択してください</h2>
+        <h2 className="text-black m-4 text-center mb-12 text-2xl">音階を選択してください</h2>
         <div ref={keyboardRef} className="flex-1 overflow-x-auto overflow-y-hidden flex justify-center">
           <div className="flex relative h-full">
             {notes.map((note) => (

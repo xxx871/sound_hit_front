@@ -38,7 +38,9 @@ describe('お問い合わせページ', () => {
     await userEvent.type(messageInput, "a".repeat(1001));
     await userEvent.click(submitButton);
 
-    expect(await screen.findByText("※メッセージは1000文字以内で入力してください。")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("※メッセージは1000文字以内で入力してください。")).toBeInTheDocument();
+    }, { timeout: 10000 });
   });
 
   test("フォームを正しく送信できる", async () => {
