@@ -12,6 +12,6 @@ export const passwordReset = async (data: PasswordResetData) => {
     });
     return response.data;
   } catch (error) {
-    console.log('Error sending password reset email', error);
+    throw error;
   }
 };

@@ -4,10 +4,12 @@ import { useForm } from "react-hook-form";
 import { passwordResetFormSchema } from "@/features/auth/validation/passwordResetFormSchema";
 import { z } from "zod";
 import { passwordReset } from "@/features/auth/api/passwordReset";
+import axios from "axios";
 
 export const usePasswordResetForm = () => {
   const [serverError, setServerError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const form = useForm({
     mode: "onChange",
@@ -19,22 +21,26 @@ export const usePasswordResetForm = () => {
 
   const onSubmit = async (value: z.infer<typeof passwordResetFormSchema>) => {
     setIsLoading(true);
+    setServerError(null);
+    setIsSuccess(false);
     const { email } = value;
     try {
-      const response = await passwordReset({
-        email
-      });
-
-      if (response.error) {
-        console.log(response.error.message);
-        throw response.error;
+      await passwordReset({ email });
+      setIsSuccess(true);
+    } catch (error) {
+      console.log(error);
+      if (!axios.isAxiosError(error)) {
+        setServerError("予期せぬエラーが発生しました。");
+        return;
+      } else if (error.response?.data.errors) {
+        setServerError(error.response.data.errors);
+      } else {
+        setServerError("サーバーエラーが発生しました。");
       }
-    } catch (error: any) {
-      setServerError(error.message);
     } finally {
       setIsLoading(false);
     }
   };
 
-  return { form, onSubmit, serverError, isLoading };
+  return { form, onSubmit, serverError, isLoading, isSuccess };
 }
