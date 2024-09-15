@@ -28,7 +28,6 @@ export const usePasswordResetForm = () => {
       await passwordReset({ email });
       setIsSuccess(true);
     } catch (error) {
-      console.log(error);
       if (!axios.isAxiosError(error)) {
         setServerError("予期せぬエラーが発生しました。");
         return;

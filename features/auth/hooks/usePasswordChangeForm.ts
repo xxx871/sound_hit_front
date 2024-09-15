@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { passwordChangeFormSchema } from "@/features/auth/validation/passwordChangeFormSchema";
 import { z } from "zod";
 import { passwordChange } from "@/features/auth/api/passwordChange";
+import axios from "axios";
 
 export const usePasswordChangeForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,24 +27,19 @@ export const usePasswordChangeForm = () => {
     setIsLoading(true);
     const { password, password_confirmation } = value;
     try {
-      const response = await passwordChange({
+      await passwordChange({
         password,
         password_confirmation,
         reset_password_token,
       });
-
-      if (response.error) {
-        console.log(response.error.message);
-        throw response.error;
-      }
       router.push("/");
       router.refresh();
-    } catch (error: any) {
-      if (error.response && error.response.data && error.response.data.errors) {
-        const errorMessage = error.response.data.errors.full_messages ? error.response.data.errors.full_messages[0] : "登録中にエラーが発生しました。";
-        setServerError(errorMessage);
+    } catch (error) {
+      if (!axios.isAxiosError(error)) {
+        setServerError("予期せぬエラーが発生しました。");
+        return;
       } else {
-        setServerError("登録中にエラーが発生しました。");
+        setServerError("サーバーエラーが発生しました。");
       } 
     } finally {
       setIsLoading(false);
