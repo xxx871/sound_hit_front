@@ -22,10 +22,20 @@ const createMockRouter = () => ({
 
 export const mockRouter = createMockRouter();
 
+const createMockSearchParams = () => ({
+  get: vi.fn((param) => {
+    if (param === 'modeId') return '1';
+    return null;
+  }),
+});
+
+export const mockSearchParams = createMockSearchParams();
+
 export const mockRedirect = vi.fn();
 
 vi.mock('next/navigation', () => ({
   useRouter: () => mockRouter,
+  useSearchParams: () => mockSearchParams,
   redirect: (url: string) => mockRedirect(url),
 }));
 
