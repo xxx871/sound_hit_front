@@ -60,7 +60,7 @@ export const useEditForm = (userData: User, notes: Note[]) => {
     router.refresh();
   } catch (error) {
     console.error("Error submitting form:", error);
-    setErrorMessage('正常に送信できませんでした');
+    setErrorMessage(error instanceof Error ? error.message : String(error));
     } finally {
       setIsLoading(false);
     }
